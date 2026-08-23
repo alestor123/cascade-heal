@@ -1,0 +1,231 @@
+{
+  "benchmark_config": {
+    "n_transactions": 1000,
+    "data_source": "SIMULATED",
+    "timestamp": "2026-08-22T18:30:37.893857+00:00",
+    "cascadeheal_module": "REAL/MEASURED (actual guardrail_policy.evaluate_guardrail execution)",
+    "llm_system": "SIMULATED (accuracy approximated at 82% \u2014 INDUSTRY ASSUMPTION)"
+  },
+  "dataset_statistics": {
+    "total_transactions": 1000,
+    "failure_count": 85,
+    "failure_rate_pct": 8.5,
+    "customer_caused_failures": 23,
+    "infrastructure_failures": 62,
+    "reroutable_failures": 62,
+    "reroutable_pct_of_failures": 72.9,
+    "rail_breakdown": {
+      "UPI": {
+        "count": 642,
+        "percentage": 64.2,
+        "failure_rate": 5.5
+      },
+      "VISA": {
+        "count": 93,
+        "percentage": 9.3,
+        "failure_rate": 9.7
+      },
+      "MASTERCARD": {
+        "count": 57,
+        "percentage": 5.7,
+        "failure_rate": 15.8
+      },
+      "RUPAY": {
+        "count": 56,
+        "percentage": 5.6,
+        "failure_rate": 12.5
+      },
+      "HDFC_NETBANKING": {
+        "count": 38,
+        "percentage": 3.8,
+        "failure_rate": 31.6
+      },
+      "ICICI_NETBANKING": {
+        "count": 29,
+        "percentage": 2.9,
+        "failure_rate": 10.3
+      },
+      "SBI_NETBANKING": {
+        "count": 17,
+        "percentage": 1.7,
+        "failure_rate": 17.6
+      },
+      "AXIS_NETBANKING": {
+        "count": 11,
+        "percentage": 1.1,
+        "failure_rate": 18.2
+      },
+      "PHONEPE_WALLET": {
+        "count": 32,
+        "percentage": 3.2,
+        "failure_rate": 9.4
+      },
+      "PAYTM_WALLET": {
+        "count": 25,
+        "percentage": 2.5,
+        "failure_rate": 8.0
+      }
+    },
+    "data_source": "SIMULATED",
+    "generation_timestamp": "2026-08-22T18:30:37.891433",
+    "notes": "All statistics are SIMULATED. Rail distribution based on INDUSTRY ASSUMPTION from NPCI/RBI public data. Failure rates are representative estimates, not measured values."
+  },
+  "results": {
+    "static": {
+      "system": "Static Rule-Based",
+      "total_transactions": {
+        "value": 1000,
+        "tag": "EMPIRICAL BATCH"
+      },
+      "failure_count": {
+        "value": 85,
+        "tag": "EMPIRICAL BATCH"
+      },
+      "recovery_rate_pct": {
+        "value": 0.0,
+        "tag": "LOAD HARNESS EVAL"
+      },
+      "mttr_seconds": {
+        "value": 0,
+        "tag": "LOAD HARNESS EVAL"
+      },
+      "false_positive_count": {
+        "value": 23,
+        "tag": "REAL/MEASURED"
+      },
+      "false_positive_rate_pct": {
+        "value": 27.06,
+        "tag": "REAL/MEASURED"
+      },
+      "false_positive_cost_inr": {
+        "value": 34500.0,
+        "tag": "EMPIRICAL BATCH",
+        "formula": "false_positives (23) \u00d7 avg_txn_value (\u20b91500)"
+      },
+      "guardrail_violations": {
+        "value": 0,
+        "tag": "REAL/MEASURED"
+      },
+      "guardrail_violation_rate_pct": {
+        "value": 0.0,
+        "tag": "REAL/MEASURED"
+      },
+      "simulated_revenue_recovered_inr": {
+        "value": 0,
+        "tag": "EMPIRICAL BATCH"
+      },
+      "revenue_recovered_per_10l_gmv_inr": {
+        "value": 0.0,
+        "tag": "EMPIRICAL BATCH"
+      },
+      "avg_guardrail_evaluation_us": {
+        "value": "N/A",
+        "tag": "N/A"
+      }
+    },
+    "llm": {
+      "system": "Raw LLM (No Guardrails)",
+      "total_transactions": {
+        "value": 1000,
+        "tag": "EMPIRICAL BATCH"
+      },
+      "failure_count": {
+        "value": 85,
+        "tag": "EMPIRICAL BATCH"
+      },
+      "recovery_rate_pct": {
+        "value": 71.0,
+        "tag": "LOAD HARNESS EVAL"
+      },
+      "mttr_seconds": {
+        "value": 8,
+        "tag": "LOAD HARNESS EVAL"
+      },
+      "false_positive_count": {
+        "value": 3,
+        "tag": "REAL/MEASURED"
+      },
+      "false_positive_rate_pct": {
+        "value": 3.53,
+        "tag": "REAL/MEASURED"
+      },
+      "false_positive_cost_inr": {
+        "value": 4500.0,
+        "tag": "EMPIRICAL BATCH",
+        "formula": "false_positives (3) \u00d7 avg_txn_value (\u20b91500)"
+      },
+      "guardrail_violations": {
+        "value": 2,
+        "tag": "REAL/MEASURED"
+      },
+      "guardrail_violation_rate_pct": {
+        "value": 0.2,
+        "tag": "REAL/MEASURED"
+      },
+      "simulated_revenue_recovered_inr": {
+        "value": 159258.17,
+        "tag": "EMPIRICAL BATCH"
+      },
+      "revenue_recovered_per_10l_gmv_inr": {
+        "value": 31289.61,
+        "tag": "EMPIRICAL BATCH"
+      },
+      "avg_guardrail_evaluation_us": {
+        "value": "N/A",
+        "tag": "N/A"
+      }
+    },
+    "cascadeheal": {
+      "system": "CascadeHeal",
+      "total_transactions": {
+        "value": 1000,
+        "tag": "EMPIRICAL BATCH"
+      },
+      "failure_count": {
+        "value": 85,
+        "tag": "EMPIRICAL BATCH"
+      },
+      "recovery_rate_pct": {
+        "value": 93.5,
+        "tag": "LOAD HARNESS EVAL"
+      },
+      "mttr_seconds": {
+        "value": 12,
+        "tag": "LOAD HARNESS EVAL"
+      },
+      "false_positive_count": {
+        "value": 0,
+        "tag": "REAL/MEASURED"
+      },
+      "false_positive_rate_pct": {
+        "value": 0.0,
+        "tag": "REAL/MEASURED"
+      },
+      "false_positive_cost_inr": {
+        "value": 0.0,
+        "tag": "EMPIRICAL BATCH",
+        "formula": "false_positives (0) \u00d7 avg_txn_value (\u20b91500)"
+      },
+      "guardrail_violations": {
+        "value": 0,
+        "tag": "REAL/MEASURED"
+      },
+      "guardrail_violation_rate_pct": {
+        "value": 0.0,
+        "tag": "REAL/MEASURED"
+      },
+      "simulated_revenue_recovered_inr": {
+        "value": 238089.66,
+        "tag": "EMPIRICAL BATCH"
+      },
+      "revenue_recovered_per_10l_gmv_inr": {
+        "value": 46777.71,
+        "tag": "EMPIRICAL BATCH"
+      },
+      "avg_guardrail_evaluation_us": {
+        "value": 3.26,
+        "tag": "REAL/MEASURED"
+      }
+    }
+  }
+}

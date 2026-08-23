@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+:root {
+  --background: #050b14;
+  --surface: #0d1829;
+  --surface-2: #111f35;
+  --border: rgba(99, 179, 237, 0.12);
+  --accent-blue: #38bdf8;
+  --accent-cyan: #22d3ee;
+  --accent-green: #4ade80;
+  --accent-red: #f87171;
+  --accent-amber: #fbbf24;
+  --accent-purple: #a78bfa;
+  --text-primary: #e2e8f0;
+  --text-secondary: #94a3b8;
+  --text-muted: #475569;
+}
+
+body {
+  background: var(--background);
+  color: var(--text-primary);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--background); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+/* Glassmorphism card */
+.glass-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  backdrop-filter: blur(12px);
+}
+
+/* Pulse animation for live indicator */
+@keyframes pulse-live {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.pulse-live { animation: pulse-live 2s ease-in-out infinite; }
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Health status colors */
+.health-healthy { color: var(--accent-green); }
+.health-degraded { color: var(--accent-amber); }
+.health-unhealthy { color: var(--accent-red); }
+
+/* Glow effects */
+.glow-green { box-shadow: 0 0 20px rgba(74, 222, 128, 0.15); }
+.glow-red { box-shadow: 0 0 20px rgba(248, 113, 113, 0.15); }
+.glow-blue { box-shadow: 0 0 20px rgba(56, 189, 248, 0.15); }
+.glow-amber { box-shadow: 0 0 20px rgba(251, 191, 36, 0.15); }
+
+/* Incident badge */
+.incident-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Audit log entry */
+.audit-entry {
+  border-left: 2px solid var(--border);
+  padding-left: 12px;
+  margin-bottom: 8px;
+  transition: border-color 0.2s;
+}
+.audit-entry:hover { border-left-color: var(--accent-blue); }
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-in { animation: fadeIn 0.3s ease-out forwards; }
+
+/* Slide-in for new audit entries */
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-8px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.slide-in { animation: slideIn 0.25s ease-out forwards; }
+
+/* Progress bar */
+.progress-bar {
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(255,255,255,0.06);
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.5s ease;
+}
